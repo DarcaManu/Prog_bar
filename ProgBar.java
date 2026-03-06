@@ -130,13 +130,23 @@ class ProgBar {
                     System.out.print('\u000C');
                     break;
 
-                //DA IMPLEMENTARE    
+                // MOSTRA FINESTRA PER PRENDERE ORDINI QUI
                 case 11:
-                    System.out.println("da implementare");
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
-
+                GUI finestraInserimento = new GUI(codaOrdinazioni, gestoreFile);
+                finestraInserimento.setVisible(true);
+                utilOrdine.premiUnTasto();
+                System.out.print('\u000C');
+                
                 break;
+
+                //MOSTRA ORDINI FINESTRA GUI
+                case 12:
+                MostraOrdini finestra = new MostraOrdini(codaOrdinazioni);
+                finestra.setVisible(true);
+                utilOrdine.premiUnTasto();
+                System.out.print('\u000C');
+                break;
+
 
                 default:
                     System.out.println("Scelta non valida!");

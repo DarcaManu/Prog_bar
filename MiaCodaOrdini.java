@@ -21,11 +21,11 @@ public class MiaCodaOrdini extends Coda {
     
         while (!this.vuota()) {
             Ordine ordine = (Ordine) this.togli();
-            if (ordine.getNumeroTavola().equals(numeroTavola)) {
+            if (ordine.getNumeroTavola() == Integer.parseInt(numeroTavola)) {
                 utilOrdini.stampaOrdine(ordine);
                 System.out.println("-----");
             }
-            temp.aggiungi(ordine); 
+            temp.aggiungi(ordine);  // ← SALVA IN TEMP
         }
     
         // serve per rimettere gli ordini nella coda originale

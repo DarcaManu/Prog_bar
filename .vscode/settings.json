@@ -1,0 +1,10 @@
+{
+    "errorLens.enabledDiagnosticLevels": [
+    "error"
+],
+"errorLens.messageEnabled": true,
+"errorLens.messageBackgroundMode": "line",
+"errorLens.statusBarIconsEnabled": false,
+"errorLens.statusBarMessageEnabled": false
+
+}

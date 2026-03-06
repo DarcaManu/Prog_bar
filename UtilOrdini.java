@@ -12,8 +12,10 @@ class UtilOrdini {
             String tavola = tastiera.readLine();
             System.out.print("Ordine: ");
             String ordine = tastiera.readLine();
+            System.out.print("Quantità: ");
+            int quantita = Integer.parseInt(tastiera.readLine());
 
-            return new Ordine(tavola, ordine);
+            return new Ordine(Integer.parseInt(tavola), ordine, quantita);
             
         } catch (Exception e) {
             return null;
@@ -32,10 +34,14 @@ class UtilOrdini {
                 System.out.print("Ordine: ");
                 ordine = tastiera.readLine();
 
+                System.out.print("Quantità: ");
+                String quantita = tastiera.readLine();
+
                 if (!ordine.equals("fine")) {
-                    Ordine o = new Ordine(tavola, ordine);
+                    Ordine o = new Ordine(Integer.parseInt(tavola), ordine, Integer.parseInt(quantita));
                     coda.aggiungi(o);
                 }
+            
             } while (!ordine.equals("fine"));
 
             System.out.println("Fine inserimento ordini tavola " + tavola);
