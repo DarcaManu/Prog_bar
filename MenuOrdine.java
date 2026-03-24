@@ -15,6 +15,7 @@ public class MenuOrdine {
     System.out.println("9) Mostra guida utente");
     System.out.println("10) Carica listino prezzi");
     System.out.println("11) Mostra ordini finestra GUI");
+    System.out.println("12) Mostra ordini presi con prezzi");
     System.out.println("0) Esci");
   }
 
