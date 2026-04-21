@@ -1,6 +1,6 @@
 
 import java.io.*;
-class UtilOrdini {
+class Utility {
 
     InputStreamReader input = new InputStreamReader(System.in);
     BufferedReader tastiera = new BufferedReader(input);
@@ -22,7 +22,7 @@ class UtilOrdini {
         }
     }
 
-    public void acquisisciOrdiniTavolo(MiaCodaOrdini coda) {
+    public void acquisisciOrdiniTavolo(codaOrdini coda) {
         try {
             System.out.print("N° Tavola: ");
             String tavola = tastiera.readLine();
@@ -56,8 +56,8 @@ class UtilOrdini {
     //=================================================
 
 
-    public static void VisualizzaTutti(MiaCodaOrdini coda, UtilOrdini util) {
-        MiaCodaOrdini temp = new MiaCodaOrdini();
+    public static void VisualizzaTutti(codaOrdini coda, Utility util) {
+        codaOrdini temp = new codaOrdini();
 
         while (!coda.vuota()) {
 

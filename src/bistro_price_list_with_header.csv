@@ -1,0 +1,28 @@
+Categoria,Item,Price,CodiceArticolo
+Colazione,Cappuccino,1.80,COL-001
+Colazione,Caffè espresso,1.20,COL-002
+Colazione,Caffè americano,1.50,COL-003
+Colazione,Cornetto semplice,1.20,COL-004
+Colazione,Cornetto farcito,1.50,COL-005
+Colazione,Succo di frutta,2.50,COL-006
+Pranzo & Light Lunch,Insalata mista,6.50,PRL-001
+Pranzo & Light Lunch,Insalatona con pollo,8.50,PRL-002
+Pranzo & Light Lunch,Panino gourmet,7.00,PRL-003
+Pranzo & Light Lunch,Toast classico,4.50,PRL-004
+Pranzo & Light Lunch,Piadina farcita,6.00,PRL-005
+Pranzo & Light Lunch,Zuppa del giorno,6.50,PRL-006
+Piatti Caldi,Lasagna,8.00,CAL-001
+Piatti Caldi,Pasta del giorno,7.50,CAL-002
+Piatti Caldi,Parmigiana di melanzane,7.50,CAL-003
+Dolci,Tiramisù,4.50,DOL-001
+Dolci,Cheesecake,4.50,DOL-002
+Dolci,Crostata,3.50,DOL-003
+Dolci,Biscotti artigianali,2.00,DOL-004
+Bevande Calde,Tè caldo,2.00,BVC-001
+Bevande Calde,Cioccolata calda,3.00,BVC-002
+Bevande Calde,Latte macchiato,1.80,BVC-003
+Bevande Fredde,Acqua naturale/frizzante,1.00,BVF-001
+Bevande Fredde,Bibite in lattina,2.50,BVF-002
+Bevande Fredde,Birra artigianale,4.50,BVF-003
+Bevande Fredde,Spritz,5.00,BVF-004
+Bevande Fredde,Vino al calice,4.00,BVF-005

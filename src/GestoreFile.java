@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class GestoreFile {
+public class gestoreFile {
 
     //==========================================================
     //METODI CHE SALVANO E CARICANO LA CODA DEGLI ORDINI SU FILE 
@@ -9,8 +9,8 @@ public class GestoreFile {
 
 
     // SALVA coda su file
-    public static void salva(MiaCodaOrdini coda) {
-        try (FileOutputStream f = new FileOutputStream("data/ordini.dat");
+    public static void salva(codaOrdini coda) {
+        try (FileOutputStream f = new FileOutputStream("ordini.dat");
              ObjectOutputStream fOUT = new ObjectOutputStream(f)) {
 
             int n = coda.size();
@@ -19,15 +19,15 @@ public class GestoreFile {
                 fOUT.writeObject(obj);
                 coda.aggiungi(obj);
             }
-            System.out.println("Salvato in data/ordini.dat");
+            System.out.println("Salvato in ordini.dat");
 
         } catch (IOException e) {
             System.out.println("Errore nella scrittura.");
         }
     }
     // CARICA coda da file
-    public static void carica(MiaCodaOrdini coda) {
-        try (FileInputStream f = new FileInputStream("data/ordini.dat");
+    public static void carica(codaOrdini coda) {
+        try (FileInputStream f = new FileInputStream("ordini.dat");
              ObjectInputStream fIN = new ObjectInputStream(f)) {
 
             coda.svuota();
@@ -37,7 +37,7 @@ public class GestoreFile {
             }
 
         } catch (java.io.EOFException e) {
-            System.out.println("Caricato da data/ordini.dat");
+            System.out.println("Caricato da ordini.dat");
         } catch (Exception e) {
             System.out.println("Errore nella lettura.");
         }
@@ -54,7 +54,7 @@ public class GestoreFile {
         String s;
 
         try {
-            fIN = new BufferedReader(new FileReader("data/GuidaUtente.txt"));
+            fIN = new BufferedReader(new FileReader("GuidaUtente.txt"));
             System.out.println("\n=== GUIDA UTENTE ===");
             s = fIN.readLine();
             while (s != null) {
@@ -64,7 +64,7 @@ public class GestoreFile {
             System.out.println("===============");
 
         } catch (IOException e) {
-            System.out.println("Errore lettura GuidaUtente.txt");
+            System.out.println("Errore lettura guida_utente.txt");
         } finally {
             try {
                 if (fIN != null) fIN.close();
@@ -76,7 +76,7 @@ public class GestoreFile {
 
 
     public ArrayList<String[]> caricaListinoPrezzi() {//dal csv prende tutte le righe e le colonne e le restituisce in una lista di array di stringhe
-    String file = "data/bistro_price_list_with_header.csv";
+    String file = "bistro_price_list_with_header.csv";
     String line;
     ArrayList<String[]> listino = new ArrayList<>();
     BufferedReader br = null;

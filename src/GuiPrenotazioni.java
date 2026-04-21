@@ -2,10 +2,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class GUI extends JFrame {
+public class GuiPrenotazioni extends JFrame {
 
-    private MiaCodaOrdini coda;
-    private GestoreFile gestore;
+    private codaOrdini coda;
+    private gestoreFile gestore;
 
     // componenti che servono al listener
     private JSpinner spTavolo;
@@ -14,7 +14,7 @@ public class GUI extends JFrame {
     private JButton btnAnnulla;
     private JButton btnConferma;
 
-    public GUI(MiaCodaOrdini codaCondivisa, GestoreFile gestoreCondiviso) {
+    public GuiPrenotazioni(codaOrdini codaCondivisa, gestoreFile gestoreCondiviso) {
         this.coda = codaCondivisa;
         this.gestore = gestoreCondiviso;
 
@@ -41,13 +41,14 @@ public class GUI extends JFrame {
         center.add(new JLabel("Tavolo:"));
         spTavolo = new JSpinner(new SpinnerNumberModel(1, 1, 50, 1));
         //il primo numero è il valore iniziale, il secondo è il minimo, il terzo è il massimo e l'ultimo è l'incremento
+        //cercato online per comodità nel farlo
         center.add(spTavolo);
 
 
         // Combo prodotti
         center.add(new JLabel("Prodotto:"));
         comboProdotti = new JComboBox<>();
-        ArrayList<String> lista = GestoreFile.leggiProdotti("data/bistro_price_list_with_header.csv");
+        ArrayList<String> lista = gestoreFile.leggiProdotti("bistro_price_list_with_header.csv");
         for (String p : lista) {
             comboProdotti.addItem(p);
         }
@@ -70,7 +71,7 @@ public class GUI extends JFrame {
 
         // collega il gestore eventi esterno
         btnConferma.addActionListener(
-        new GestioneEventi(spTavolo, comboProdotti, spQuantita, coda));
+        new GestoreEventi(spTavolo, comboProdotti, spQuantita, coda));
         
     }
 }

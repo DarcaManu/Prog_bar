@@ -1,17 +1,17 @@
 import java.awt.event.*;
 import javax.swing.*;
 
-public class GestioneEventi implements ActionListener {
+public class GestoreEventi implements ActionListener {
 
     private JSpinner spTavolo;
     private JComboBox<String> comboProdotti;
     private JSpinner spQuantita;
-    private MiaCodaOrdini coda;
+    private codaOrdini coda;
 
-    public GestioneEventi(JSpinner spTavolo,
+    public GestoreEventi(JSpinner spTavolo,
                           JComboBox<String> comboProdotti,
                           JSpinner spQuantita,
-                          MiaCodaOrdini coda) {
+                          codaOrdini coda) {
         this.spTavolo = spTavolo;
         this.comboProdotti = comboProdotti;
         this.spQuantita = spQuantita;
@@ -33,6 +33,9 @@ public class GestioneEventi implements ActionListener {
         // Crea un nuovo ordine e lo aggiunge alla coda
         Ordine ordine = new Ordine(numeroTavolo, prodotto, quantita);
         coda.aggiungi(ordine);
+
+
+
 
         JOptionPane.showMessageDialog(null,
             "Ordine inserito: Tavolo " + numeroTavolo +

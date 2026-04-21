@@ -1,13 +1,13 @@
 import java.io.*;
 
-class ProgBar {
+class Main {
     public static void main(String[] args) {
         //richiamiamo le classi da usare
 
-        MiaCodaOrdini codaOrdinazioni = new MiaCodaOrdini();
-        MenuOrdine mioMenu = new MenuOrdine();
-        UtilOrdini utilOrdine = new UtilOrdini();
-        GestoreFile gestoreFile = new GestoreFile();
+        codaOrdini codaOrdinazioni = new codaOrdini();
+        menuScelte mioMenu = new menuScelte();
+        Utility utilOrdine = new Utility();
+        gestoreFile gestoreFile = new gestoreFile();
         
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader tastiera = new BufferedReader(input);
@@ -66,7 +66,7 @@ class ProgBar {
                 // VISUALIZZA TUTTI GLI ORDINI NELLA CODA    
                 case 5:
                     System.out.println("Elenco Ordini:");
-                    UtilOrdini.VisualizzaTutti(codaOrdinazioni, utilOrdine);//metodo scritto in UtilOrdini che visualizza tutti gli ordini della coda
+                    Utility.VisualizzaTutti(codaOrdinazioni, utilOrdine);//metodo scritto in UtilOrdini che visualizza tutti gli ordini della coda
                     utilOrdine.premiUnTasto();
                     System.out.print('\u000C');
                     break;
@@ -91,7 +91,7 @@ class ProgBar {
                 case 7:
                     try {
 
-                        GestoreFile.salva(codaOrdinazioni);
+                        gestoreFile.salva(codaOrdinazioni);
 
                     } catch (Exception e) {
                         System.out.println("Errore salvataggio: " + e.getMessage());
@@ -105,7 +105,7 @@ class ProgBar {
                 case 8:
                 try {
 
-                    GestoreFile.carica(codaOrdinazioni);
+                    gestoreFile.carica(codaOrdinazioni);
 
                 } catch (Exception e) {
                     System.out.println("Errore carica: " + e.getMessage());
@@ -117,7 +117,7 @@ class ProgBar {
                 
                 // MOSTRA GUIDA UTENTE (TESTO)
                 case 9:
-                    GestoreFile.mostraGuidaUtente();
+                    gestoreFile.mostraGuidaUtente();
                     utilOrdine.premiUnTasto();
                     System.out.print('\u000C');
                     break;  
@@ -125,14 +125,14 @@ class ProgBar {
                 // CARICA LISTINO PREZZI DA CSV E LO MOSTRA    
                 case 10:
                     gestoreFile.caricaListinoPrezzi();      // legge il CSV e riempie listino interno
-                    gestoreFile.mostraListinoPrezzi();      // stampa quello che c'è in listino
+                    gestoreFile.mostraListinoPrezzi();      // stampa quello che c’è in listino
                     utilOrdine.premiUnTasto();
                     System.out.print('\u000C');
                     break;
 
                 // MOSTRA FINESTRA PER PRENDERE ORDINI QUI
                 case 11:
-                GUI finestraInserimento = new GUI(codaOrdinazioni, gestoreFile);
+                GuiPrenotazioni finestraInserimento = new GuiPrenotazioni(codaOrdinazioni, gestoreFile);
                 finestraInserimento.setVisible(true);
                 utilOrdine.premiUnTasto();
                 System.out.print('\u000C');
@@ -141,7 +141,7 @@ class ProgBar {
 
                 //MOSTRA ORDINI FINESTRA GUI
                 case 12:
-                MostraOrdini finestra = new MostraOrdini(codaOrdinazioni);
+                interfacciaOrdini finestra = new interfacciaOrdini(codaOrdinazioni);
                 finestra.setVisible(true);
                 utilOrdine.premiUnTasto();
                 System.out.print('\u000C');

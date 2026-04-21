@@ -1,9 +1,9 @@
 import iisvolta.strutture_vector.Coda;
 
 
-public class MiaCodaOrdini extends Coda {
+public class codaOrdini extends Coda {
 
-    public Ordine leggiVoce(UtilOrdini util) { //legge senza togliere dalla coda
+    public Ordine leggiVoce(Utility util) { //legge senza togliere dalla coda
 
         Ordine ord = (Ordine) this.togli();
         if (ord == null) { System.out.println("Coda vuota"); return null; }
@@ -14,8 +14,8 @@ public class MiaCodaOrdini extends Coda {
 
     }
 
-    public void visualizzaOrdiniTavolo(String numeroTavola, UtilOrdini utilOrdini) {
-        MiaCodaOrdini temp = new MiaCodaOrdini(); // coda temporanea per salvare gli ordini mentre li controlliamo
+    public void visualizzaOrdiniTavolo(String numeroTavola, Utility utilOrdini) {
+        codaOrdini temp = new codaOrdini(); // coda temporanea per salvare gli ordini mentre li controlliamo
     
         System.out.println("=== ORDINI TAVOLO " + numeroTavola + " ===");
     
@@ -39,3 +39,5 @@ public class MiaCodaOrdini extends Coda {
     }
 
 }
+
+
