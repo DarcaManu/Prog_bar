@@ -30,8 +30,6 @@ public class Bar4ci extends JFrame{
         JMenuItem inserisciOrdine = new JMenuItem("Inserisci ordine");
         JMenuItem mostraOrdini = new JMenuItem("Mostra ordini");
 
-
-        jMenuBar = new JMenuBar();
        
         
 
