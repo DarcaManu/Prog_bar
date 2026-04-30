@@ -1,5 +1,5 @@
 import java.io.*;
-public class menuScelte {
+public class MenuScelte {
 
   private void mostraMenu()
   {

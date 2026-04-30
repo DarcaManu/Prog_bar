@@ -1,13 +1,13 @@
 import java.io.*;
 
-class Main {
+class MainCLI {
     public static void main(String[] args) {
         //richiamiamo le classi da usare
 
-        codaOrdini codaOrdinazioni = new codaOrdini();
-        menuScelte mioMenu = new menuScelte();
+        CodaOrdini codaOrdinazioni = new CodaOrdini();
+        MenuScelte mioMenu = new MenuScelte();
         Utility utilOrdine = new Utility();
-        gestoreFile gestoreFile = new gestoreFile();
+        GestoreFile gestoreFile = new GestoreFile();
         
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader tastiera = new BufferedReader(input);
@@ -141,7 +141,7 @@ class Main {
 
                 //MOSTRA ORDINI FINESTRA GUI
                 case 12:
-                interfacciaOrdini finestra = new interfacciaOrdini(codaOrdinazioni);
+                InterfacciaOrdini finestra = new InterfacciaOrdini(codaOrdinazioni);
                 finestra.setVisible(true);
                 utilOrdine.premiUnTasto();
                 System.out.print('\u000C');

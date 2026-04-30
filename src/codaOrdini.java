@@ -1,7 +1,7 @@
 import iisvolta.strutture_vector.Coda;
 
 
-public class codaOrdini extends Coda {
+public class CodaOrdini extends Coda {
 
     public Ordine leggiVoce(Utility util) { //legge senza togliere dalla coda
 
@@ -15,7 +15,7 @@ public class codaOrdini extends Coda {
     }
 
     public void visualizzaOrdiniTavolo(String numeroTavola, Utility utilOrdini) {
-        codaOrdini temp = new codaOrdini(); // coda temporanea per salvare gli ordini mentre li controlliamo
+        CodaOrdini temp = new CodaOrdini(); // coda temporanea per salvare gli ordini mentre li controlliamo
     
         System.out.println("=== ORDINI TAVOLO " + numeroTavola + " ===");
     

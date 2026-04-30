@@ -1,12 +1,12 @@
 import javax.swing.*;
-public class interfacciaOrdini extends JFrame{
+public class InterfacciaOrdini extends JFrame{
 
 
-    private codaOrdini coda;//dovremo leggere gli ordini nella coda
+    private CodaOrdini coda;//dovremo leggere gli ordini nella coda
     private JTextArea areaText;//area di testo per visualizzare gli ordini
 
 
-    public interfacciaOrdini(codaOrdini coda){
+    public InterfacciaOrdini(CodaOrdini coda){
 
          //inizializziamo la coda 
         this.coda = coda;
@@ -29,7 +29,7 @@ public class interfacciaOrdini extends JFrame{
     private void mostraOrdini() {
         areaText.setText("");
     
-        codaOrdini temp = new codaOrdini();
+        CodaOrdini temp = new CodaOrdini();
     
         while (!coda.vuota()) {
             Ordine o = (Ordine) coda.togli();

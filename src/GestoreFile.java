@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class gestoreFile {
+public class GestoreFile {
 
     //==========================================================
     //METODI CHE SALVANO E CARICANO LA CODA DEGLI ORDINI SU FILE 
@@ -9,7 +9,7 @@ public class gestoreFile {
 
 
     // SALVA coda su file
-    public static void salva(codaOrdini coda) {
+    public static void salva(CodaOrdini coda) {
         try (FileOutputStream f = new FileOutputStream("ordini.dat");
              ObjectOutputStream fOUT = new ObjectOutputStream(f)) {
 
@@ -26,7 +26,7 @@ public class gestoreFile {
         }
     }
     // CARICA coda da file
-    public static void carica(codaOrdini coda) {
+    public static void carica(CodaOrdini coda) {
         try (FileInputStream f = new FileInputStream("ordini.dat");
              ObjectInputStream fIN = new ObjectInputStream(f)) {
 

@@ -6,12 +6,12 @@ public class GestoreEventi implements ActionListener {
     private JSpinner spTavolo;
     private JComboBox<String> comboProdotti;
     private JSpinner spQuantita;
-    private codaOrdini coda;
+    private CodaOrdini coda;
 
     public GestoreEventi(JSpinner spTavolo,
                           JComboBox<String> comboProdotti,
                           JSpinner spQuantita,
-                          codaOrdini coda) {
+                          CodaOrdini coda) {
         this.spTavolo = spTavolo;
         this.comboProdotti = comboProdotti;
         this.spQuantita = spQuantita;

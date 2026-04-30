@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class GuiPrenotazioni extends JFrame {
 
-    private codaOrdini coda;
-    private gestoreFile gestore;
+    private CodaOrdini coda;
+    private GestoreFile gestore;
 
     // componenti che servono al listener
     private JSpinner spTavolo;
@@ -14,7 +14,7 @@ public class GuiPrenotazioni extends JFrame {
     private JButton btnAnnulla;
     private JButton btnConferma;
 
-    public GuiPrenotazioni(codaOrdini codaCondivisa, gestoreFile gestoreCondiviso) {
+    public GuiPrenotazioni(CodaOrdini codaCondivisa, GestoreFile gestoreCondiviso) {
         this.coda = codaCondivisa;
         this.gestore = gestoreCondiviso;
 
@@ -48,7 +48,7 @@ public class GuiPrenotazioni extends JFrame {
         // Combo prodotti
         center.add(new JLabel("Prodotto:"));
         comboProdotti = new JComboBox<>();
-        ArrayList<String> lista = gestoreFile.leggiProdotti("bistro_price_list_with_header.csv");
+        ArrayList<String> lista = gestore.leggiProdotti("bistro_price_list_with_header.csv");
         for (String p : lista) {
             comboProdotti.addItem(p);
         }

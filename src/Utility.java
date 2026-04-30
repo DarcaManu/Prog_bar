@@ -22,7 +22,7 @@ class Utility {
         }
     }
 
-    public void acquisisciOrdiniTavolo(codaOrdini coda) {
+    public void acquisisciOrdiniTavolo(CodaOrdini coda) {
         try {
             System.out.print("N° Tavola: ");
             String tavola = tastiera.readLine();
@@ -56,8 +56,8 @@ class Utility {
     //=================================================
 
 
-    public static void VisualizzaTutti(codaOrdini coda, Utility util) {
-        codaOrdini temp = new codaOrdini();
+    public static void VisualizzaTutti(CodaOrdini coda, Utility util) {
+        CodaOrdini temp = new CodaOrdini();
 
         while (!coda.vuota()) {
 
