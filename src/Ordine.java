@@ -13,12 +13,6 @@ public class Ordine implements Serializable{
         prodotto = prod;
         quantita = quant;
     }
-    
-    public void stampa() {
-        System.out.println("Tavola: " + tavola);
-        System.out.println("Prodotto: " + prodotto);
-        System.out.println("Quantità: " + quantita);
-    }
 
 
     //GETTER E SETTER

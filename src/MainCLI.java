@@ -51,24 +51,17 @@ class MainCLI {
 
                         utilOrdine.stampaOrdine(ord2);//stampa ordine estratto
                     }
-
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                 
                 // VISUALIZZA ORDINE IN TESTA ALLA CODA SENZA TOGLIERLO    
                 case 4:
                     codaOrdinazioni.leggiVoce(utilOrdine);//legge senza togliere dalla coda
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                     
                 // VISUALIZZA TUTTI GLI ORDINI NELLA CODA    
                 case 5:
                     System.out.println("Elenco Ordini:");
                     Utility.VisualizzaTutti(codaOrdinazioni, utilOrdine);//metodo scritto in UtilOrdini che visualizza tutti gli ordini della coda
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                 
                 // VISUALIZZA ORDINI DI UN TAVOLO INSERITO DALL'UTENTE    
@@ -83,8 +76,6 @@ class MainCLI {
                         System.out.println("Errore input: " + e.getMessage());
                     }
 
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                 
                 // SALVA ORDINI SU FILE
@@ -97,8 +88,6 @@ class MainCLI {
                         System.out.println("Errore salvataggio: " + e.getMessage());
                     }
 
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                 
                 // CARICA ORDINI DA FILE
@@ -111,23 +100,18 @@ class MainCLI {
                     System.out.println("Errore carica: " + e.getMessage());
                 }
 
-                utilOrdine.premiUnTasto();
-                System.out.print('\u000C');
                 break;
                 
                 // MOSTRA GUIDA UTENTE (TESTO)
                 case 9:
                     gestoreFile.mostraGuidaUtente();
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;  
                 
                 // CARICA LISTINO PREZZI DA CSV E LO MOSTRA    
                 case 10:
                     gestoreFile.caricaListinoPrezzi();      // legge il CSV e riempie listino interno
                     gestoreFile.mostraListinoPrezzi();      // stampa quello che c’è in listino
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
+                    
                     break;
 
                 // MOSTRA FINESTRA PER PRENDERE ORDINI QUI
@@ -143,8 +127,6 @@ class MainCLI {
                 case 12:
                 InterfacciaOrdini finestra = new InterfacciaOrdini(codaOrdinazioni);
                 finestra.setVisible(true);
-                utilOrdine.premiUnTasto();
-                System.out.print('\u000C');
                 break;
 
 

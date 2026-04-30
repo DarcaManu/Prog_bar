@@ -119,7 +119,7 @@ public class GestoreFile {
     //METODI SPECIFICI PER LA GUI (ES. LEGGE SOLO I NOMI DEI PRODOTTI DAL CSV)
     //==========================================================
 
-    public static ArrayList<String> leggiProdotti(String nomeFile) {// metodo statico per leggere solo i nomi dei prodotti da un CSV e restituirli in una lista
+    public ArrayList<String> leggiProdotti(String nomeFile) {// metodo statico per leggere solo i nomi dei prodotti da un CSV e restituirli in una lista
         ArrayList<String> prodotti = new ArrayList<>();
     
         try (BufferedReader br = new BufferedReader(new FileReader(nomeFile))) {

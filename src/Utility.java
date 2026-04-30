@@ -80,18 +80,16 @@ class Utility {
     // METODI USATI IN VARIE PARTI DEL PROGRAMMA PER VISUALIZZARE ORDINI E PREMERE UN TASTO PER CONTINUARE
     //============================================
 
-    public void stampaOrdine(Ordine o) {//la o sarebbe l'ordine dopo il downcast da object a ordine
-    
-        if (o != null) o.stampa();
-        
+    public void stampaOrdine(Ordine ord) {
+        System.out.println("Tavola: " + ord.getNumeroTavola());
+        System.out.println("Prodotto: " + ord.getProdotto());
+        System.out.println("Quantità: " + ord.getQuantita());
     }
     
-    public void premiUnTasto() {
-        try {
-            System.out.print("Premi tasto...");
-            tastiera.readLine();
-        } catch (Exception e) {}
+    // Utility.java — metodo nuovo per la GUI
+    public String stampaOrdineStringa(Ordine ord) {
+        return "Tavolo: " + ord.getNumeroTavola() + "\n" +
+               "Prodotto: " + ord.getProdotto() + "\n" +
+               "Quantità: " + ord.getQuantita();
     }
-
-
 }

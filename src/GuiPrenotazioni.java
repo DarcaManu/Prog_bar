@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class GuiPrenotazioni extends JFrame {
+public class GuiPrenotazioni extends JPanel {
 
     private CodaOrdini coda;
     private GestoreFile gestore;
@@ -17,11 +17,6 @@ public class GuiPrenotazioni extends JFrame {
     public GuiPrenotazioni(CodaOrdini codaCondivisa, GestoreFile gestoreCondiviso) {
         this.coda = codaCondivisa;
         this.gestore = gestoreCondiviso;
-
-        setTitle("Interfaccia Bar - Collegata alla Console");
-        setSize(400, 250);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
         JPanel north = new JPanel();
@@ -48,7 +43,7 @@ public class GuiPrenotazioni extends JFrame {
         // Combo prodotti
         center.add(new JLabel("Prodotto:"));
         comboProdotti = new JComboBox<>();
-        ArrayList<String> lista = gestore.leggiProdotti("bistro_price_list_with_header.csv");
+        ArrayList<String> lista = gestore.leggiProdotti("data/bistro_price_list_with_header.csv");
         for (String p : lista) {
             comboProdotti.addItem(p);
         }
