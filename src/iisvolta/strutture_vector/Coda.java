@@ -2,50 +2,38 @@ package iisvolta.strutture_vector;
 
 import java.util.*;
 
-public class Coda
-{
-  private Vector<Object> elementi;
+public class Coda {
 
-  public Coda()
-  {
-    elementi = new Vector<>();
-  }
+    private Vector elementi;
 
-
-  public void aggiungi(Object obj)
-  {
-    elementi.addElement(obj);
-  }
-
-
-  public Object togli()
-  {
-    Object obj = null;
-    int size = elementi.size();
-
-    if (size > 0)
-    {
-      obj = elementi.elementAt(0);
-      elementi.removeElementAt(0);
+    public Coda() {
+        elementi = new Vector<>();
     }
-    return obj;
-  }
 
+    public void aggiungi(Object obj) {
+        elementi.addElement(obj);
+    }
 
-    public int size()
-  {
-    return elementi.size();
-  }
+    public Object togli() {
+        Object obj = null;
+        int size = elementi.size();
 
+        if (size > 0) {
+            obj = elementi.elementAt(0);
+            elementi.removeElementAt(0);
+        }
+        return obj;
+    }
 
-    public boolean vuota()
-  {
-     return elementi.isEmpty();
-  }
+    public int size() {
+        return elementi.size();
+    }
 
+    public boolean vuota() {
+        return elementi.isEmpty();
+    }
 
-    public void svuota()
-  {
-    elementi.clear();
-  }
+    public void svuota() {
+        elementi.clear();
+    }
 }

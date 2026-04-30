@@ -37,11 +37,11 @@ COME USARE OGNI OPZIONE
    - Mostra SOLO ordini di quella tavola
 
 6. Salva su file
-   - Salva TUTTA coda su data/ordini.dat
+   - Salva TUTTA coda su ordini.dat
    - Backup completo FIFO preservato
 
 7. Carica da file
-   - Svuota coda + ricarica da data/ordini.dat
+   - Svuota coda + ricarica da ordini.dat
    - Ripristina lavoro precedente
 
 8. Mostra guida utente
@@ -53,7 +53,7 @@ COME USARE OGNI OPZIONE
 NOTE IMPORTANTI
 - Schermo si pulisce automaticamente
 - Premi un tasto dopo ogni operazione  
-- File dati: data/ordini.dat
+- File dati: ordini.dat (stessa cartella)
 - Coda FIFO: Primo arrivato = primo servito
 
 TEST RAPIDO

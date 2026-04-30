@@ -25,8 +25,6 @@ class MainCLI {
                     Ordine ord = utilOrdine.acquisisciOrdine();//chiede dati ordine e crea oggetto ordine
                     codaOrdinazioni.aggiungi(ord);
 
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                 
                 // AGGIUNGE PIU ORDINI ALLO STESSO TAVOLO NELLA CODA
@@ -35,8 +33,6 @@ class MainCLI {
 
                     utilOrdine.acquisisciOrdiniTavolo(codaOrdinazioni);
 
-                    utilOrdine.premiUnTasto();
-                    System.out.print('\u000C');
                     break;
                 
                 // ESTRAE ORDINE DALLA CODA E LO VISUALIZZA    
@@ -118,8 +114,6 @@ class MainCLI {
                 case 11:
                 GuiPrenotazioni finestraInserimento = new GuiPrenotazioni(codaOrdinazioni, gestoreFile);
                 finestraInserimento.setVisible(true);
-                utilOrdine.premiUnTasto();
-                System.out.print('\u000C');
                 
                 break;
 
