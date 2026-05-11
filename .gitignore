@@ -4,3 +4,5 @@
 out/
 *.iml
 .vscode/
+#ignora il file api.txt
+api.txt
