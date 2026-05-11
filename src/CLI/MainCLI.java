@@ -1,8 +1,8 @@
-package iisvolta.CLI;
+package  CLI;
 
-import iisvolta.gui.GuiPrenotazioni;
-import iisvolta.gui.InterfacciaOrdini;
-import iisvolta.model.Ordine;
+import  gui.GuiPrenotazioni;
+import  gui.InterfacciaOrdini;
+import  model.Ordine;
 import java.io.*;
 
 class MainCLI {

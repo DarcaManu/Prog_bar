@@ -1,10 +1,13 @@
+package  CLI;
 
+import  model.Ordine;
 import java.io.*;
-class Utility {
+
+public class Utility {
 
     InputStreamReader input = new InputStreamReader(System.in);
     BufferedReader tastiera = new BufferedReader(input);
-    
+
     public Ordine acquisisciOrdine() {
         try {
 
@@ -16,7 +19,7 @@ class Utility {
             int quantita = Integer.parseInt(tastiera.readLine());
 
             return new Ordine(Integer.parseInt(tavola), ordine, quantita);
-            
+
         } catch (Exception e) {
             return null;
         }
@@ -41,7 +44,7 @@ class Utility {
                     Ordine o = new Ordine(Integer.parseInt(tavola), ordine, Integer.parseInt(quantita));
                     coda.aggiungi(o);
                 }
-            
+
             } while (!ordine.equals("fine"));
 
             System.out.println("Fine inserimento ordini tavola " + tavola);
@@ -50,11 +53,9 @@ class Utility {
         }
     }
 
-    
     //=================================================
-    //VISUALIZZAZIONE DEGLI ORDINI PRESENTI NELLA CODA 
+    //VISUALIZZAZIONE DEGLI ORDINI PRESENTI NELLA CODA
     //=================================================
-
 
     public static void VisualizzaTutti(CodaOrdini coda, Utility util) {
         CodaOrdini temp = new CodaOrdini();
@@ -65,16 +66,13 @@ class Utility {
             util.stampaOrdine(o);
             temp.aggiungi(o);
             System.out.println("-----");
-        
         }
 
         while (!temp.vuota()) {//quando finisce di stampare rimetto gli ordini nella coda originale
 
             coda.aggiungi(temp.togli());//aggiungo alla coda originale gli ordini tolti dalla coda temporanea
-
         }
     }
-
 
     //============================================
     // METODI USATI IN VARIE PARTI DEL PROGRAMMA PER VISUALIZZARE ORDINI E PREMERE UN TASTO PER CONTINUARE
@@ -85,7 +83,7 @@ class Utility {
         System.out.println("Prodotto: " + ord.getProdotto());
         System.out.println("Quantità: " + ord.getQuantita());
     }
-    
+
     // Utility.java — metodo nuovo per la GUI
     public String stampaOrdineStringa(Ordine ord) {
         return "Tavolo: " + ord.getNumeroTavola() + "\n" +

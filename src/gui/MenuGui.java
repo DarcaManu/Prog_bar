@@ -1,4 +1,4 @@
-package iisvolta.gui;
+package  gui;
 
 import java.awt.*;
 import javax.swing.*;

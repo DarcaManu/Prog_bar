@@ -1,7 +1,7 @@
-package iisvolta.gui;
+package  gui;
 
-import iisvolta.CLI.CodaOrdini;
-import iisvolta.model.Ordine;
+import  CLI.CodaOrdini;
+import  model.Ordine;
 import javax.swing.*;
 
 public class InterfacciaOrdini extends JFrame {

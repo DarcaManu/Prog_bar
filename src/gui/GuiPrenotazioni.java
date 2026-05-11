@@ -1,3 +1,8 @@
+package  gui;
+
+import  CLI.CodaOrdini;
+import  CLI.GestoreFile;
+import  model.Ordine;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -6,11 +11,12 @@ public class GuiPrenotazioni extends JPanel {
 
     private CodaOrdini coda;
     private GestoreFile gestore;
+    private Ordine ordine;
 
     // componenti che servono al listener
     private JSpinner spTavolo;
     private JSpinner spQuantita;
-    private JComboBox<String> comboProdotti;
+    private JComboBox comboProdotti;
     private JButton btnAnnulla;
     private JButton btnConferma;
 
@@ -39,12 +45,11 @@ public class GuiPrenotazioni extends JPanel {
         //cercato online per comodità nel farlo
         center.add(spTavolo);
 
-
         // Combo prodotti
         center.add(new JLabel("Prodotto:"));
         comboProdotti = new JComboBox<>();
-        ArrayList<String> lista = gestore.leggiProdotti("data/bistro_price_list_with_header.csv");
-        for (String p : lista) {
+        ArrayList lista = gestore.leggiProdotti("data/bistro_price_list_with_header.csv");
+        for (Object p : lista) {
             comboProdotti.addItem(p);
         }
         center.add(comboProdotti);
@@ -65,8 +70,32 @@ public class GuiPrenotazioni extends JPanel {
         add(south, BorderLayout.SOUTH);
 
         // collega il gestore eventi esterno
-        btnConferma.addActionListener(
-        new GestoreEventi(spTavolo, comboProdotti, spQuantita, coda));
-        
+        // ANNULLA: resetta i campi al valore iniziale
+        btnAnnulla.addActionListener(e -> {
+            spTavolo.setValue(1);
+            spQuantita.setValue(1);
+            comboProdotti.setSelectedIndex(0);
+});
+
+// CONFERMA: crea l'ordine e lo aggiunge alla coda
+    btnConferma.addActionListener(e -> {
+        int numeroTavolo = (Integer) spTavolo.getValue();
+        String prodotto = (String) comboProdotti.getSelectedItem();
+        int quantita = (Integer) spQuantita.getValue();
+
+        if (prodotto == null) {
+            //message dialog per avvertire l'utente di selezionare un prodotto
+            JOptionPane.showMessageDialog(null, "Seleziona un prodotto!");
+        return;
+    }
+
+    // Crea un nuovo ordine e lo aggiunge alla coda
+    Ordine ordine = new Ordine(numeroTavolo, prodotto, quantita);
+    coda.aggiungi(ordine);
+
+    JOptionPane.showMessageDialog(null,
+        "Ordine inserito: Tavolo " + numeroTavolo +
+        ", " + prodotto + ", x" + quantita);
+    });
     }
 }

@@ -1,10 +1,10 @@
-package iisvolta.gui;
+package  gui;
 
 import java.awt.*;
 import javax.swing.*;
-import iisvolta.CLI.CodaOrdini;
-import iisvolta.CLI.Utility;
-import iisvolta.model.Ordine;
+import  CLI.CodaOrdini;
+import  CLI.Utility;
+import  model.Ordine;
 
 public class PanelOrdiniTavolo extends JPanel {
 
