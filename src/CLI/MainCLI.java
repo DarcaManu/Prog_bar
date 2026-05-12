@@ -1,9 +1,9 @@
 package  CLI;
 
-import  gui.GuiPrenotazioni;
-import  gui.InterfacciaOrdini;
-import  model.Ordine;
-import java.io.*;
+import  gui.PanelOrdinazioni;
+import  gui.PanelTuttiOrdini;
+import  java.io.*;
+import model.Ordine;
 
 class MainCLI {
     public static void main(String[] args) {
@@ -101,13 +101,13 @@ class MainCLI {
 
                 // MOSTRA FINESTRA PER PRENDERE ORDINI QUI
                 case 11:
-                GuiPrenotazioni finestraInserimento = new GuiPrenotazioni(codaOrdinazioni, gestoreFile);
+                PanelOrdinazioni finestraInserimento = new PanelOrdinazioni(codaOrdinazioni, gestoreFile);
                 finestraInserimento.setVisible(true);
                 break;
 
                 //MOSTRA ORDINI FINESTRA GUI
                 case 12:
-                InterfacciaOrdini finestra = new InterfacciaOrdini(codaOrdinazioni);
+                PanelTuttiOrdini finestra = new PanelTuttiOrdini(codaOrdinazioni);
                 finestra.setVisible(true);
                 break;
 

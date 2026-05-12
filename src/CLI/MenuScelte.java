@@ -2,7 +2,7 @@ package  CLI;
 
 import java.io.*;
 
-class MenuScelte {
+public class MenuScelte {
 
     private void mostraMenu() {
         System.out.println();

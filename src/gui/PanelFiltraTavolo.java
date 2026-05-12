@@ -1,14 +1,14 @@
 package  gui;
 
-import java.awt.*;
-import javax.swing.*;
-import  CLI.CodaOrdini;
-import  CLI.Utility;
+import CLI.CodaOrdini;
+import CLI.Utility;
+import  java.awt.*;
+import  javax.swing.*;
 import  model.Ordine;
 
-public class PanelOrdiniTavolo extends JPanel {
+public class PanelFiltraTavolo extends JPanel {
 
-    public PanelOrdiniTavolo(CodaOrdini coda, Utility utility) {
+    public PanelFiltraTavolo(CodaOrdini coda, Utility utility) {
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(); // pannello per input + bottone

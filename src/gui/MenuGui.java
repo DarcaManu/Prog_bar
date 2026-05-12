@@ -25,10 +25,8 @@ public class MenuGui {
         // ── ORDINAZIONI ──
         JMenu menuOrdinazioni = new JMenu("Ordinazioni");
         menuOrdinazioni.add(creaMenuItem("Aggiungi Ordine", "aggiungi"));
-        menuOrdinazioni.add(creaMenuItem("Ordini per Tavolo", "ordinitavolo"));
-        menuOrdinazioni.add(new JSeparator());
+        menuOrdinazioni.add(creaMenuItem("Ordinazioni per un tavolo", "ordinitavolo"));
         menuOrdinazioni.add(creaMenuItem("Estrai Ordine", "estrai"));
-        menuOrdinazioni.add(creaMenuItem("Visualizza Testa Coda", "testa"));
 
         // ── CUCINA ──
         JMenu menuCucina = new JMenu("Cucina");
@@ -37,8 +35,8 @@ public class MenuGui {
 
         // ── FILE ──
         JMenu menuFile = new JMenu("Gestione File");
-        menuFile.add(creaMenuItem("Salva Ordini", "file"));
-        menuFile.add(creaMenuItem("Carica Ordini", "file"));
+        menuFile.add(creaMenuItem("Salva Ordini", "salva"));
+        menuFile.add(creaMenuItem("Carica Ordini", "carica"));
         menuFile.add(new JSeparator());
         menuFile.add(creaMenuItem("Listino Prezzi", "listino"));
 

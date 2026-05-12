@@ -2,12 +2,12 @@ package  gui;
 
 import  CLI.CodaOrdini;
 import  CLI.GestoreFile;
-import  model.Ordine;
-import java.awt.*;
+import  java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import model.Ordine;
 
-public class GuiPrenotazioni extends JPanel {
+public class PanelOrdinazioni extends JPanel {
 
     private CodaOrdini coda;
     private GestoreFile gestore;
@@ -20,7 +20,7 @@ public class GuiPrenotazioni extends JPanel {
     private JButton btnAnnulla;
     private JButton btnConferma;
 
-    public GuiPrenotazioni(CodaOrdini codaCondivisa, GestoreFile gestoreCondiviso) {
+    public PanelOrdinazioni(CodaOrdini codaCondivisa, GestoreFile gestoreCondiviso) {
         this.coda = codaCondivisa;
         this.gestore = gestoreCondiviso;
         setLayout(new BorderLayout());

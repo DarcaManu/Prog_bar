@@ -11,32 +11,36 @@ import javax.swing.*;
  * Usa CardLayout per mostrare un pannello per volta.
  * Nessuna JFrame aggiuntiva viene aperta.
  */
-public class MainGui extends JFrame {
+public class MainGUI extends JFrame {
 
     private CardLayout cardLayout = new CardLayout();
     private JPanel cardPanel = new JPanel(cardLayout);
     private CodaOrdini coda = new CodaOrdini();
     private GestoreFile gestoreFile = new GestoreFile();
     private Utility utility = new Utility();
-    private GuiPrenotazioni panelAggiungi = new GuiPrenotazioni(coda, gestoreFile);
+    private PanelOrdinazioni panelAggiungi = new PanelOrdinazioni(coda, gestoreFile);
     private MenuGui menu = new MenuGui(this, cardLayout, cardPanel);
 
-    public MainGui() {
+    public MainGUI() {
         setTitle("Bar Management");
         setSize(500, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setJMenuBar(menu.creaMenuBar()); // costruisce la JMenuBar
 
-        cardPanel.add(new PanelHome(),                      "home");
-        cardPanel.add(panelAggiungi,                        "aggiungi");
+        cardPanel.add(new PanelHome(),"home");
+        cardPanel.add(panelAggiungi,"aggiungi");
         cardPanel.add(new PanelEstraiOrdine(coda, utility), "estrai");
-        cardPanel.add(new PanelOrdiniTavolo(coda, utility), "ordinitavolo");
-        //cardPanel.add(creaTuttiOrdiniPanel(), "tutti");
-        //cardPanel.add(creaFilePanel(), "file");
-        //cardPanel.add(creaListinoPanel(), "listino");
-        //cardPanel.add(creaGuidaPanel(), "guida");
-        // ... altri pannelli
+        cardPanel.add(new PanelOrdinazioniPerTavolo(coda, gestoreFile), "ordinitavolo");
+        
+        cardPanel.add(new PanelTuttiOrdini(coda), "tutti");
+        cardPanel.add(new PanelFiltraTavolo(coda, utility), "filtratavolo");
+
+        cardPanel.add(new PanelSalvaOrdini(coda),"salva");
+    cardPanel.add(new PanelCaricaOrdini(coda),"carica");
+    cardPanel.add(new PanelListinoPrezzi(gestoreFile),"listino");
+
+    cardPanel.add(new PanelGuidaUtente(),               "guida");
 
         add(cardPanel);
         cardLayout.show(cardPanel, "home"); // pannello iniziale
@@ -47,6 +51,6 @@ public class MainGui extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new MainGui().setVisible(true));
+        SwingUtilities.invokeLater(() -> new MainGUI().setVisible(true));
     }
 }
