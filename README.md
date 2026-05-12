@@ -11,21 +11,33 @@ Il programma è disponibile in due modalità: **console (CLI)** e **interfaccia 
 ```
 Prog_bar/
 ├── src/
-│   ├── Main.java                           <- avvio CLI, menu testuale e ciclo principale
-│   ├── MainGui.java                        <- avvio GUI, finestra principale con CardLayout e JMenuBar
-│   ├── Ordine.java                         <- classe che rappresenta un singolo ordine (tavolo, prodotto, quantità)
-│   ├── CodaOrdini.java                     <- estende la classe Coda della libreria iisvolta
-│   ├── MenuScelte.java                     <- stampa il menu CLI e legge la scelta dell'utente
-│   ├── Utility.java                        <- metodi di utilità: input ordini, stampa, "premi un tasto"
-│   ├── GestoreFile.java                    <- salva/carica ordini su file, legge CSV listino, mostra guida
-│   ├── GuiPrenotazioni.java                <- pannello Swing per inserire un ordine graficamente
-│   ├── GestoreEventi.java                  <- ActionListener del pulsante Conferma nella GUI
-│   └── InterfacciaOrdini.java              <- pannello Swing che mostra tutti gli ordini in coda
-├── src/iisvolta/                           <- libreria scolastica con la classe Coda (non modificare)
+│   ├── CLI/
+│   │   ├── MainCLI.java        <- avvio modalità console, menu testuale e ciclo principale
+│   │   ├── CodaOrdini.java     <- estende la classe Coda della libreria strutture_vector
+│   │   ├── MenuScelte.java     <- stampa il menu CLI e legge la scelta dell'utente
+│   │   ├── Utility.java        <- metodi di utilità: input ordini, stampa, "premi un tasto"
+│   │   └── GestoreFile.java    <- salva/carica ordini su file, legge CSV listino, mostra guida
+│   ├── gui/
+│   │   ├── MainGui.java                    <- finestra principale con CardLayout e JMenuBar
+│   │   ├── MenuGui.java                    <- costruisce la JMenuBar e gestisce la navigazione
+│   │   ├── PanelHome.java                  <- pannello di benvenuto con immagine
+│   │   ├── PanelOrdinazioni.java           <- aggiunge un singolo ordine alla coda
+│   │   ├── PanelOrdinazioniPerTavolo.java  <- aggiunge più ordini per lo stesso tavolo
+│   │   ├── PanelEstraiOrdine.java          <- estrae il primo ordine dalla coda
+│   │   ├── PanelTuttiOrdini.java           <- mostra tutti gli ordini in coda
+│   │   ├── PanelFiltraTavolo.java          <- filtra gli ordini per numero tavolo
+│   │   ├── PanelSalvaOrdini.java           <- salva la coda su file binario
+│   │   ├── PanelCaricaOrdini.java          <- carica gli ordini da file binario
+│   │   ├── PanelListinoPrezzi.java         <- mostra il listino prezzi dal CSV
+│   │   └── PanelGuidaUtente.java           <- mostra la guida utente dal file TXT
+│   ├── model/
+│   │   └── Ordine.java         <- classe che rappresenta un singolo ordine (tavolo, prodotto, quantità)
+│   └── strutture_vector/       <- libreria scolastica con la classe Coda (non modificare)
 ├── data/
 │   ├── ordini.dat                          <- file binario con gli ordini salvati
-│   ├── bistro_price_list_with_header.csv   <- listino prezzi (letto dalla GUI e dal menu console)
+│   ├── bistro_price_list_with_header.csv   <- listino prezzi
 │   └── GuidaUtente.txt                     <- guida testuale accessibile dal menu
+├── compile_and_run.bat         <- script Windows per compilare ed eseguire il progetto
 └── README.md
 ```
 
@@ -35,30 +47,31 @@ Prog_bar/
 
 Il programma ruota attorno a una **coda FIFO di oggetti `Ordine`**.
 Ogni ordine ha tre campi: numero tavola, nome prodotto e quantità.
-La coda è implementata estendendo la classe `Coda` della libreria `iisvolta` — non usa `java.util.Queue` perché il progetto richiedeva di usare le strutture dati della scuola.
-
-La GUI condivide la stessa coda della console: un ordine aggiunto dalla finestra grafica è immediatamente visibile anche dal menu testuale.
+La coda è implementata estendendo la classe `Coda` della libreria `strutture_vector` — non usa `java.util.Queue` perché il progetto richiedeva di usare le strutture dati della scuola.
 
 ---
 
 ## Modalità di avvio
 
-### GUI (consigliata)
-Avvia `MainGui.java` come classe principale.
-Si apre una finestra con una **JMenuBar** nella parte superiore per navigare tra le sezioni:
+### GUI (consigliata) — `MainGui.java`
 
-| Menu | Voci |
-|------|------|
-| **Ordinazioni** | Aggiungi Ordine, Ordini per Tavolo, Estrai Ordine, Visualizza Testa Coda |
-| **Cucina** | Tutti gli Ordini, Filtra per Tavolo |
-| **Gestione File** | Salva Ordini, Carica Ordini, Listino Prezzi |
-| **Guida** | Guida Utente |
-| **Esci** | Chiude l'applicazione |
+Si apre una finestra con una **JMenuBar** per navigare tra le sezioni.
+Ogni voce di menu mostra il pannello corrispondente **nella stessa finestra** — nessuna JFrame aggiuntiva viene aperta (CardLayout).
 
-Ogni voce di menu mostra il pannello corrispondente nella finestra principale — **nessuna finestra aggiuntiva viene aperta**.
+| Menu | Pannello aperto |
+|------|----------------|
+| Ordinazioni → Aggiungi Ordine | `PanelOrdinazioni` |
+| Ordinazioni → Ordini per Tavolo | `PanelOrdinazioniPerTavolo` |
+| Cucina → Estrai Ordine | `PanelEstraiOrdine` |
+| Cucina → Tutti gli Ordini | `PanelTuttiOrdini` |
+| Cucina → Filtra per Tavolo | `PanelFiltraTavolo` |
+| File → Salva Ordini | `PanelSalvaOrdini` |
+| File → Carica Ordini | `PanelCaricaOrdini` |
+| File → Listino Prezzi | `PanelListinoPrezzi` |
+| Guida | `PanelGuidaUtente` |
 
-### Console (CLI)
-Avvia `Main.java` come classe principale.
+### Console (CLI) — `MainCLI.java`
+
 Appare un menu testuale numerato con le stesse funzionalità della GUI.
 
 | N° | Cosa fa |
@@ -69,28 +82,33 @@ Appare un menu testuale numerato con le stesse funzionalità della GUI.
 | 4  | Mostra il primo ordine senza rimuoverlo |
 | 5  | Mostra tutti gli ordini in coda |
 | 6  | Filtra e mostra gli ordini di un tavolo specifico |
-| 7  | Salva tutta la coda su `ordini.dat` |
-| 8  | Carica gli ordini da `ordini.dat` |
-| 9  | Mostra la guida utente dal file TXT |
-| 10 | Carica e mostra il listino prezzi dal CSV |
-| 11 | Apre il pannello GUI per inserire un ordine |
-| 12 | Apre il pannello GUI con l'elenco degli ordini |
+| 7  | Salva tutta la coda su `data/ordini.dat` |
+| 8  | Carica gli ordini da `data/ordini.dat` |
+| 9  | Mostra la guida utente |
+| 10 | Mostra il listino prezzi dal CSV |
 | 0  | Esce dal programma |
 
 ---
 
 ## Come eseguire
 
-1. Aprire il progetto con **IntelliJ IDEA** o **VS Code** con l'estensione Java
-2. Assicurarsi che la libreria `iisvolta` sia nel classpath (è già inclusa nella cartella `src/iisvolta/`)
-3. Avviare `MainGui.java` per la GUI oppure `Main.java` per la CLI
+### Con IntelliJ IDEA / VS Code
+1. Aprire la cartella del progetto come progetto Java
+2. Assicurarsi che `src/strutture_vector/` sia nel classpath
+3. Avviare `MainGui.java` per la GUI oppure `MainCLI.java` per la console
+
+### Con lo script batch (Windows)
+Dalla root del progetto, eseguire:
+```
+compile_and_run.bat
+```
 
 ---
 
 ## Note tecniche
 
-- `Ordine` implementa `Serializable` per permettere il salvataggio su file binario con `ObjectOutputStream`
-- Il file `ordini.dat` non è leggibile come testo — è un file binario con serializzazione Java standard
+- `Ordine` implementa `Serializable` per il salvataggio su file binario con `ObjectOutputStream`
+- Il file `ordini.dat` non è leggibile come testo: è serializzazione Java standard
 - Il listino prezzi è un CSV con header: `Categoria, Item, Prezzo, CodiceArticolo`
-- La GUI legge il CSV per popolare la combo box dei prodotti — se si modifica il listino, la GUI si aggiorna automaticamente al prossimo avvio
-- La `MainGui` usa `CardLayout` per mostrare un pannello per volta senza aprire nuovi `JFrame`
+- La GUI usa `CardLayout`: un unico `JFrame` mostra un pannello per volta, senza aprire finestre aggiuntive
+- Il package `strutture_vector` contiene la libreria scolastica — non va modificato
