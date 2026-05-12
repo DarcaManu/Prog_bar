@@ -23,7 +23,7 @@ public class MainGui extends JFrame {
 
     public MainGui() {
         setTitle("Bar Management");
-        setSize(450, 400);
+        setSize(500, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setJMenuBar(menu.creaMenuBar()); // costruisce la JMenuBar

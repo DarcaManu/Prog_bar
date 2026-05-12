@@ -1,8 +1,8 @@
 package  gui;
 
 import  CLI.CodaOrdini;
-import  model.Ordine;
-import javax.swing.*;
+import  javax.swing.*;
+import model.Ordine;
 
 public class InterfacciaOrdini extends JFrame {
 
@@ -19,7 +19,7 @@ public class InterfacciaOrdini extends JFrame {
         setLocationRelativeTo(null);
 
         setTitle("Ordini");
-        setSize(400, 300);
+        setSize(450, 400);
 
         areaText = new JTextArea();
         areaText.setEditable(false);
