@@ -6,3 +6,4 @@ out/
 .vscode/
 #ignora il file api.txt
 api.txt
+compile_prog_bar.bat
