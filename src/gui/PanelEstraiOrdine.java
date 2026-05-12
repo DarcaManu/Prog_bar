@@ -1,9 +1,9 @@
-package  gui;
+package  GUI;
 
-import java.awt.*;
-import javax.swing.*;
-import  CLI.CodaOrdini;
-import  CLI.Utility;
+import CLI.CodaOrdini;
+import CLI.Utility;
+import  java.awt.*;
+import  javax.swing.*;
 import  model.Ordine;
 
 public class PanelEstraiOrdine extends JPanel {

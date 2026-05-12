@@ -1,8 +1,8 @@
-package gui;
+package GUI;
 import CLI.GestoreFile;
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 public class PanelListinoPrezzi extends JPanel {
     public PanelListinoPrezzi(GestoreFile gestore) {

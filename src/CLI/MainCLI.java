@@ -1,9 +1,7 @@
 package  CLI;
 
-import  gui.PanelOrdinazioni;
-import  gui.PanelTuttiOrdini;
 import  java.io.*;
-import model.Ordine;
+import  model.Ordine;
 
 class MainCLI {
     public static void main(String[] args) {
@@ -99,21 +97,8 @@ class MainCLI {
                 gestoreFile.mostraListinoPrezzi(); // stampa quello che c'è in listino
                 break;
 
-                // MOSTRA FINESTRA PER PRENDERE ORDINI QUI
-                case 11:
-                PanelOrdinazioni finestraInserimento = new PanelOrdinazioni(codaOrdinazioni, gestoreFile);
-                finestraInserimento.setVisible(true);
-                break;
-
-                //MOSTRA ORDINI FINESTRA GUI
-                case 12:
-                PanelTuttiOrdini finestra = new PanelTuttiOrdini(codaOrdinazioni);
-                finestra.setVisible(true);
-                break;
-
                 default:
-                System.out.println("Scelta non valida!");
-                break;
+                System.out.println("Scelta non valida. Riprova."); 
             }
 
             scelta = mioMenu.scelta();

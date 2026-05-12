@@ -1,4 +1,4 @@
-package  gui;
+package  GUI;
 
 import  CLI.CodaOrdini;
 import  CLI.GestoreFile;

@@ -1,9 +1,8 @@
-package gui;
+package GUI;
 import CLI.CodaOrdini;
 import CLI.GestoreFile;
-import CLI.Utility;
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class PanelSalvaOrdini extends JPanel {
     public PanelSalvaOrdini(CodaOrdini coda) {
