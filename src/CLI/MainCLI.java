@@ -53,19 +53,17 @@ class MainCLI {
 
                 // VISUALIZZA TUTTI GLI ORDINI NELLA CODA
                 case 5:
-                System.out.println("Elenco Ordini:");
-                Utility.VisualizzaTutti(codaOrdinazioni, utilOrdine);//metodo scritto in UtilOrdini che visualizza tutti gli ordini della coda
+                System.out.println(utilOrdine.tuttiGliOrdiniStringa(codaOrdinazioni));
                 break;
 
                 // VISUALIZZA ORDINI DI UN TAVOLO INSERITO DALL'UTENTE
                 case 6:
-                System.out.print("Inserisci numero Tavola da visualizzare: ");
-                try {
-                    String numeroTavola = tastiera.readLine();//prende in input il numero tavola
-                    codaOrdinazioni.visualizzaOrdiniTavolo(numeroTavola, utilOrdine);//in base al numero tavola visualizza gli ordini
-                } catch (Exception e) {
-                    System.out.println("Errore input: " + e.getMessage());
-                }
+                    System.out.print("Inserisci numero Tavola da visualizzare: ");
+                    try {
+                        String numeroTavola = tastiera.readLine();
+                        System.out.println(codaOrdinazioni.visualizzaOrdiniTavoloStringa(numeroTavola, utilOrdine));
+                    } catch (Exception e) {
+                        System.out.println("Errore input: " + e.getMessage());}
                 break;
 
                 // SALVA ORDINI SU FILE
@@ -94,7 +92,7 @@ class MainCLI {
                 // CARICA LISTINO PREZZI DA CSV E LO MOSTRA
                 case 10:
                 gestoreFile.caricaListinoPrezzi(); // legge il CSV e riempie listino interno
-                gestoreFile.mostraListinoPrezzi(); // stampa quello che c'è in listino
+                System.out.println(gestoreFile.mostraListinoPrezziStringa()); // stampa quello che c'è in listino
                 break;
 
                 default:

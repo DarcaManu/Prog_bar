@@ -4,7 +4,6 @@ import CLI.CodaOrdini;
 import CLI.Utility;
 import  java.awt.*;
 import  javax.swing.*;
-import  model.Ordine;
 
 public class PanelFiltraTavolo extends JPanel {
 
@@ -12,42 +11,24 @@ public class PanelFiltraTavolo extends JPanel {
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(); // pannello per input + bottone
-        JTextField inputTavolo = new JTextField(10);
-        JButton btnVisualizza = new JButton("Visualizza Ordini");
-        topPanel.add(new JLabel("Numero tavolo:"));
-        topPanel.add(inputTavolo);
-        topPanel.add(btnVisualizza);
 
+        JLabel lblTavolo= new JLabel("Numero tavolo:");
+        JTextField inputTavolo = new JTextField(10);
+
+        topPanel.add(lblTavolo);
+        topPanel.add(inputTavolo);
+        
         JTextArea output = new JTextArea();
+        //creiamo un text area per visualizzare gli ordini filtrati senza poterla modificare
         output.setEditable(false);
 
+        // bottone per visualizzare gli ordini filtrati
+        JButton btnVisualizza = new JButton("Visualizza Ordini");
+        topPanel.add(btnVisualizza);
+
         btnVisualizza.addActionListener(e -> {
-            String numeroTavolo = inputTavolo.getText().trim();
-            if (numeroTavolo.isEmpty()) {
-                output.setText("Inserisci un numero di tavolo.");
-                return;
-            }
-
-            output.setText(""); // pulisci prima
-            CodaOrdini temp = new CodaOrdini();
-            boolean trovato = false;
-
-            while (!coda.vuota()) {
-                Ordine ordine = (Ordine) coda.togli();
-                if (ordine.getNumeroTavola() == Integer.parseInt(numeroTavolo)) {
-                    output.append(utility.stampaOrdineStringa(ordine) + "\n-----\n"); // ← scrivi diretto
-                    trovato = true;
-                }
-                temp.aggiungi(ordine);
-            }
-
-            while (!temp.vuota()) {
-                coda.aggiungi(temp.togli());
-            }
-
-            if (!trovato) {
-                output.setText("Nessun ordine per la tavola " + numeroTavolo);
-            }
+            //riuso un metodo già presente in CodaOrdini che restituisce una stringa con gli ordini filtrati per tavolo
+            output.setText(coda.visualizzaOrdiniTavoloStringa(inputTavolo.getText().trim(), utility));
         });
 
         add(topPanel, BorderLayout.NORTH);

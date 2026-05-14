@@ -1,7 +1,7 @@
 Categoria,Item,Price,CodiceArticolo
 Colazione,Cappuccino,1.80,COL-001
-Colazione,Caffè espresso,1.20,COL-002
-Colazione,Caffè americano,1.50,COL-003
+Colazione,Caffe espresso,1.20,COL-002
+Colazione,Caffe americano,1.50,COL-003
 Colazione,Cornetto semplice,1.20,COL-004
 Colazione,Cornetto farcito,1.50,COL-005
 Colazione,Succo di frutta,2.50,COL-006
@@ -18,7 +18,7 @@ Dolci,Tiramisù,4.50,DOL-001
 Dolci,Cheesecake,4.50,DOL-002
 Dolci,Crostata,3.50,DOL-003
 Dolci,Biscotti artigianali,2.00,DOL-004
-Bevande Calde,Tè caldo,2.00,BVC-001
+Bevande Calde,Te caldo,2.00,BVC-001
 Bevande Calde,Cioccolata calda,3.00,BVC-002
 Bevande Calde,Latte macchiato,1.80,BVC-003
 Bevande Fredde,Acqua naturale/frizzante,1.00,BVF-001

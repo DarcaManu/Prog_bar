@@ -1,7 +1,7 @@
 package  CLI;
 
-import  model.Ordine;
-import java.io.*;
+import  java.io.*;
+import model.Ordine;
 
 public class Utility {
 
@@ -57,22 +57,26 @@ public class Utility {
     //VISUALIZZAZIONE DEGLI ORDINI PRESENTI NELLA CODA
     //=================================================
 
-    public static void VisualizzaTutti(CodaOrdini coda, Utility util) {
-        CodaOrdini temp = new CodaOrdini();
+   public String tuttiGliOrdiniStringa(CodaOrdini coda) {
+    CodaOrdini temp = new CodaOrdini();
+    String risultato = "";
 
-        while (!coda.vuota()) {
-
-            Ordine o = (Ordine) coda.togli();
-            util.stampaOrdine(o);
-            temp.aggiungi(o);
-            System.out.println("-----");
-        }
-
-        while (!temp.vuota()) {//quando finisce di stampare rimetto gli ordini nella coda originale
-
-            coda.aggiungi(temp.togli());//aggiungo alla coda originale gli ordini tolti dalla coda temporanea
-        }
+    while (!coda.vuota()) {
+        Ordine o = (Ordine) coda.togli();
+        risultato += o.toString() + "\n-----\n";
+        temp.aggiungi(o);
     }
+
+    while (!temp.vuota()) {
+        coda.aggiungi(temp.togli());
+    }
+
+    if (risultato.isEmpty()) {
+        risultato = "Nessun ordine presente";
+    }
+
+    return risultato;
+}
 
     //============================================
     // METODI USATI IN VARIE PARTI DEL PROGRAMMA PER VISUALIZZARE ORDINI E PREMERE UN TASTO PER CONTINUARE

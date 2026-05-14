@@ -15,27 +15,29 @@ public class CodaOrdini extends Coda {
         return ord;
     }
 
-    public void visualizzaOrdiniTavolo(String numeroTavola, Utility utilOrdini) {
-        CodaOrdini temp = new CodaOrdini(); // coda temporanea per salvare gli ordini mentre li controlliamo
-
-        System.out.println("=== ORDINI TAVOLO " + numeroTavola + " ===");
+    public String visualizzaOrdiniTavoloStringa(String numeroTavola, Utility utilOrdini) {
+        CodaOrdini temp = new CodaOrdini();
+        String risultato = "";
+        boolean trovato = false;
 
         while (!this.vuota()) {
             Ordine ordine = (Ordine) this.togli();
             if (ordine.getNumeroTavola() == Integer.parseInt(numeroTavola)) {
-                utilOrdini.stampaOrdine(ordine);
-                System.out.println("-----");
+                risultato += utilOrdini.stampaOrdineStringa(ordine) + "\n-----\n";
+                trovato = true;
             }
-            temp.aggiungi(ordine); // ← SALVA IN TEMP
+            temp.aggiungi(ordine);
         }
 
-        // serve per rimettere gli ordini nella coda originale
         while (!temp.vuota()) {
             this.aggiungi(temp.togli());
         }
 
-        if (this.size() == 0) { // Corretto: controlla dopo rimessa
-            System.out.println("Nessun ordine per la tavola " + numeroTavola);
+        if (!trovato) {
+            risultato = "Nessun ordine per la tavola " + numeroTavola;
         }
-    }
+
+        return risultato;
+    }   
 }
+

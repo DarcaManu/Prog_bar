@@ -7,47 +7,45 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * Finestra principale dell'applicazione.
- * Usa CardLayout per mostrare un pannello per volta.
- * Nessuna JFrame aggiuntiva viene aperta.
+ Finestra principale dell'applicazione.
+ Usa CardLayout per mostrare un pannello per volta.
+ Nessuna JFrame aggiuntiva viene aperta.
  */
-public class MainGUI extends JFrame {
+
+    public class MainGUI extends JFrame {
+
 
     private CardLayout cardLayout = new CardLayout();
     private JPanel cardPanel = new JPanel(cardLayout);
     private CodaOrdini coda = new CodaOrdini();
     private GestoreFile gestoreFile = new GestoreFile();
     private Utility utility = new Utility();
-    private PanelOrdinazioni panelAggiungi = new PanelOrdinazioni(coda, gestoreFile);
     private MenuGui menu = new MenuGui(this, cardLayout, cardPanel);
 
     public MainGUI() {
         setTitle("Bar Management");
         setSize(500, 450);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);// chiude l'app quando si chiude la finestra
 
         setJMenuBar(menu.creaMenuBar()); // costruisce la JMenuBar
 
         cardPanel.add(new PanelHome(),"home");
-        cardPanel.add(panelAggiungi,"aggiungi");
+        cardPanel.add(new PanelOrdinazioni(coda, gestoreFile), "aggiungi");
         cardPanel.add(new PanelEstraiOrdine(coda, utility), "estrai");
         cardPanel.add(new PanelOrdinazioniPerTavolo(coda, gestoreFile), "ordinitavolo");
         
-        cardPanel.add(new PanelTuttiOrdini(coda), "tutti");
+        cardPanel.add(new PanelTuttiOrdini(utility, coda), "tutti");
         cardPanel.add(new PanelFiltraTavolo(coda, utility), "filtratavolo");
 
         cardPanel.add(new PanelSalvaOrdini(coda),"salva");
-    cardPanel.add(new PanelCaricaOrdini(coda),"carica");
-    cardPanel.add(new PanelListinoPrezzi(gestoreFile),"listino");
+        cardPanel.add(new PanelCaricaOrdini(coda),"carica");
+        cardPanel.add(new PanelListinoPrezzi(gestoreFile),"listino");
 
-    cardPanel.add(new PanelGuidaUtente(),               "guida");
+        cardPanel.add(new PanelGuidaUtente(),               "guida");
 
+        // aggiungo il pannello con CardLayout alla finestra
         add(cardPanel);
-        cardLayout.show(cardPanel, "home"); // pannello iniziale
-    }
-
-    private void mostraScheda(String nome) {
-        cardLayout.show(cardPanel, nome);
+        cardLayout.show(cardPanel, "home"); // quando apro l'app, mostro la home
     }
 
     public static void main(String[] args) {

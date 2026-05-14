@@ -105,15 +105,16 @@ public class GestoreFile {
         return listino;
     }
 
-    public void mostraListinoPrezzi() {//stampa a video il listino prezzi caricato dal csv
-        ArrayList listino = caricaListinoPrezzi(); // legge il CSV
-        System.out.println("\n=== LISTINO PREZZI ===");
-        for (Object voce : listino) {
-            System.out.println(String.join(" | ", (String[]) voce)); // stampa "Colazione | Cappuccino | 1.80 | COL-001"
-        }
+    public String mostraListinoPrezziStringa() {
+    ArrayList listino = caricaListinoPrezzi();
+    String risultato = "";
 
-        System.out.println("=====================");
+    for (Object voce : listino) {
+        risultato += String.join(" | ", (String[]) voce) + "\n";
     }
+
+    return risultato;
+}
 
     //==========================================================
     //METODI SPECIFICI PER LA GUI (ES. LEGGE SOLO I NOMI DEI PRODOTTI DAL CSV)

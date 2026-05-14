@@ -1,64 +1,93 @@
-GUIDA UTENTE - PROGRAMMA GESTIONE BAR
+=== GUIDA UTENTE — BAR MANAGEMENT ===
 
-MENU PRINCIPALE
-1. Aggiungi ordine
-2. Estrai ordine  
-3. Visualizza ordine
-4. Leggi tutti gli ordini
-5. Mostra ordini di un tavolo
-6. Salva su file
-7. Carica da file
-8. Mostra guida utente
-0. Esci
+Benvenuto nel sistema di gestione ordini Bar Management.
+Questa guida spiega come usare tutte le funzioni disponibili.
 
-COME USARE OGNI OPZIONE
+---------------------------------------
+1. INSERIMENTO ORDINE (menu: Ordinazioni > Aggiungi Ordine)
+---------------------------------------
+Permette di aggiungere un singolo ordine alla coda.
 
-1. Aggiungi ordine
-   - Inserisci N. Tavola + Bevande + Quantita
-   - Es: Tavola 3 - Cappuccino x2 - Birra x1
-   - Ordine va IN FONDO alla coda
+- Seleziona il numero tavolo con il contatore (da 1 a 50)
+- Scegli il prodotto dal menu a tendina
+- Imposta la quantità desiderata (da 1 a 20)
+- Premi CONFERMA per aggiungere l'ordine
+- Premi ANNULLA per resettare i campi
 
-2. Estrai ordine
-   - PRELEVA e ELIMINA il PRIMO ordine
-   - Stampa dettagli completa
-   - Se vuota: "Nessun Ordine Presente"
+---------------------------------------
+2. ORDINI PER TAVOLO (menu: Ordinazioni > Ordinazioni per un tavolo)
+---------------------------------------
+Permette di inserire più ordini per lo stesso tavolo.
 
-3. Visualizza ordine
-   - MOSTRA PRIMO ordine SENZA toglierlo
-   - Controllo rapido testa coda
+- Scrivi il numero del tavolo e premi IMPOSTA TAVOLO
+- Il pannello mostrerà il tavolo attivo
+- Scegli prodotto e quantità, poi premi CONFERMA ORDINE
+- Puoi aggiungere più ordini allo stesso tavolo senza reimpostarlo
+- Premi ANNULLA ORDINE per resettare prodotto e quantità
 
-4. Leggi tutti gli ordini
-   - Elenca TUTTA la coda
-   - [Tavola N] - Bevande + Quantita
-   - Premi tasto per paginazione
+---------------------------------------
+3. ESTRAI ORDINE (menu: Ordinazioni > Estrai Ordine)
+---------------------------------------
+Estrae e mostra il primo ordine in coda (FIFO: il più vecchio).
 
-5. Mostra ordini di un tavolo
-   - Inserisci N. Tavola (es: "3")
-   - Mostra SOLO ordini di quella tavola
+- Premi ESTRAI ORDINE per vedere e rimuovere il primo ordine
+- L'ordine estratto viene rimosso definitivamente dalla coda
+- Se la coda è vuota, appare il messaggio "Nessun Ordine Presente"
 
-6. Salva su file
-   - Salva TUTTA coda su ordini.dat
-   - Backup completo FIFO preservato
+---------------------------------------
+4. TUTTI GLI ORDINI (menu: Cucina > Tutti gli Ordini)
+---------------------------------------
+Mostra tutti gli ordini presenti in coda senza rimuoverli.
 
-7. Carica da file
-   - Svuota coda + ricarica da ordini.dat
-   - Ripristina lavoro precedente
+- Premi AGGIORNA per visualizzare la lista aggiornata
+- Gli ordini rimangono in coda dopo la visualizzazione
 
-8. Mostra guida utente
-   - Visualizza questa guida
+---------------------------------------
+5. FILTRA PER TAVOLO (menu: Cucina > Filtra per Tavolo)
+---------------------------------------
+Mostra solo gli ordini di un tavolo specifico.
 
-0. Esci
-   - Termina programma
+- Scrivi il numero del tavolo nel campo apposito
+- Premi VISUALIZZA ORDINI
+- Gli ordini del tavolo vengono mostrati senza essere rimossi dalla coda
 
-NOTE IMPORTANTI
-- Schermo si pulisce automaticamente
-- Premi un tasto dopo ogni operazione  
-- File dati: ordini.dat (stessa cartella)
-- Coda FIFO: Primo arrivato = primo servito
+---------------------------------------
+6. SALVA ORDINI (menu: Gestione File > Salva Ordini)
+---------------------------------------
+Salva tutti gli ordini presenti in coda nel file ordini.dat.
 
-TEST RAPIDO
-1 - Aggiungi 2 ordini - 4 - Vedi tutti
-6 - Salva - 0 - Esci - Riavvia
-7 - Carica - 4 - Verifica identico!
+- Premi SALVA ORDINI SU FILE
+- Il file viene sovrascritto ad ogni salvataggio
+- Usare prima di chiudere l'applicazione per non perdere i dati
 
-Programma per gestione bar - ITIS Informatica
+---------------------------------------
+7. CARICA ORDINI (menu: Gestione File > Carica Ordini)
+---------------------------------------
+Carica gli ordini salvati in precedenza dal file ordini.dat.
+
+- Premi CARICA ORDINI DA FILE
+- Gli ordini vengono aggiunti alla coda corrente
+- Vai su Cucina > Tutti gli Ordini e premi Aggiorna per vederli
+
+---------------------------------------
+8. LISTINO PREZZI (menu: Gestione File > Listino Prezzi)
+---------------------------------------
+Mostra il listino prezzi completo caricato dal file CSV.
+
+- Il listino viene caricato automaticamente all'apertura del pannello
+- Le colonne mostrate sono: categoria, prodotto, prezzo, codice
+
+---------------------------------------
+9. GUIDA UTENTE (menu: Guida > Guida Utente)
+---------------------------------------
+Mostra questa guida.
+
+---------------------------------------
+10. ESCI (menu: Esci)
+---------------------------------------
+Chiude l'applicazione.
+
+- Viene chiesta conferma prima di uscire
+- Salvare gli ordini prima di uscire per non perderli
+
+=======================================

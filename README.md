@@ -1,8 +1,8 @@
 # Prog_Bar — Gestione Ordini Bar
 
 Applicazione Java per la gestione degli ordini di un bar.
-Gli ordini vengono salvati in una **coda FIFO**: il primo ordine inserito è il primo ad essere servito.
-Il programma è disponibile in due modalità: **console (CLI)** e **interfaccia grafica (GUI)** con Java Swing.
+Gli ordini vengono salvati in una **coda FIFO**: il primo ordine inserito e il primo ad essere servito.
+Il programma e disponibile in due modalità: **console (CLI)** e **interfaccia grafica (GUI)** con Java Swing.
 
 ---
 
@@ -47,7 +47,7 @@ Prog_bar/
 
 Il programma ruota attorno a una **coda FIFO di oggetti `Ordine`**.
 Ogni ordine ha tre campi: numero tavola, nome prodotto e quantità.
-La coda è implementata estendendo la classe `Coda` della libreria `strutture_vector` — non usa `java.util.Queue` perché il progetto richiedeva di usare le strutture dati della scuola.
+La coda e implementata estendendo la classe `Coda` della libreria `strutture_vector` — non usa `java.util.Queue` perché il progetto richiedeva di usare le strutture dati della scuola.
 
 ---
 
@@ -108,7 +108,7 @@ compile_and_run.bat
 ## Note tecniche
 
 - `Ordine` implementa `Serializable` per il salvataggio su file binario con `ObjectOutputStream`
-- Il file `ordini.dat` non è leggibile come testo: è serializzazione Java standard
-- Il listino prezzi è un CSV con header: `Categoria, Item, Prezzo, CodiceArticolo`
+- Il file `ordini.dat` non e leggibile come testo: e serializzazione Java standard
+- Il listino prezzi e un CSV con header: `Categoria, Item, Prezzo, CodiceArticolo`
 - La GUI usa `CardLayout`: un unico `JFrame` mostra un pannello per volta, senza aprire finestre aggiuntive
 - Il package `strutture_vector` contiene la libreria scolastica — non va modificato

@@ -20,18 +20,8 @@ public class PanelHome extends JPanel {
             System.out.println("Immagine non trovata: " + e.getMessage());
         }
 
-        JPanel imgPanel = new JPanel() {// Pannello personalizzato per disegnare l'immagine di sfondo
-
-            //metodo che disegna l'immagine di sfondo, ridimensionandola per adattarla al pannello
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (immagine != null) {
-                    g.drawImage(immagine, 0, 0, getWidth(), getHeight(), this);
-                }
-            }
-        };
-
+        //per renderlo riutilizzabile, ho creato un pannello apposito che disegna l'immagine di sfondo, e lo aggiungo al centro del panel home
+        PannelImmagine imgPanel = new PannelImmagine(immagine);
         add(imgPanel, BorderLayout.CENTER);
     }
 }

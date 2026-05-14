@@ -1,28 +1,24 @@
 package GUI;
 import CLI.GestoreFile;
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.*;
 
 public class PanelListinoPrezzi extends JPanel {
     public PanelListinoPrezzi(GestoreFile gestore) {
+
         setLayout(new BorderLayout());
         add(new JLabel("Listino Prezzi", SwingConstants.CENTER), BorderLayout.NORTH);
 
         JTextArea area = new JTextArea();
-        area.setEditable(false);
+        area.setEditable(false);    
 
-        ArrayList listino = gestore.caricaListinoPrezzi(); // metodo già esistente
-        for (Object voce : listino) {
-            area.append(String.join(" | ", (String[]) voce) + "\n");
-        }
-
+        //riusiamo un metodo già presente in GestoreFile che restituisce una stringa con il listino prezzi formattato
+        area.setText(gestore.mostraListinoPrezziStringa());
         add(new JScrollPane(area), BorderLayout.CENTER);
     }
 
-    @Override
-    public void setVisible(boolean visible) {
-        super.setVisible(visible);
-        // non serve refresh: il listino non cambia a runtime
-    }
+
+    
+
+    
 }
